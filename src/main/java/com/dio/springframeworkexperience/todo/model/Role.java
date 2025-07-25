@@ -1,5 +1,6 @@
 package com.dio.springframeworkexperience.todo.model; // Adjust package if different
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -27,6 +28,7 @@ public class Role {
     @Column(nullable = false, unique = true)
     private String name; // Ex: ROLE_ADMIN, ROLE_USER
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "roles")
     private Set<User> users;
 }
